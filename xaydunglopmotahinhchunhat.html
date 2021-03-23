@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvasrectangle"  style="border:1px solid #d3d3d3; "></canvas>
+<p id="displayarea"></p>
+<p id="displayperimeter"></p>
+<script>
+    let rectangle = function (height, width){
+        this.height =height
+        this.width = width
+        this.getarea = function (){
+            return this.height * this.width
+        }
+        this.getperimeter = function (){
+            return 2*(height+width)
+        }
+        this.display = function (){
+            draw.style.width = this.width+"px"
+            draw.style.height = this.height+"px"
+        }
+    }
+    let draw = document.getElementById("canvasrectangle")
+    let disarea = document.getElementById("displayarea")
+    let disperimeter = document.getElementById("displayperimeter")
+    let rec = new rectangle(400,200)
+    rec.display()
+    disarea.innerHTML=rec.getarea()
+    disperimeter.innerHTML=rec.getperimeter()
+</script>
+</body>
+</html>
